@@ -9,6 +9,12 @@ import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 import ProductPage from '../ProductPage'
+import Cart from '../Cart'
+
+import { Elements } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
+
+const stripePromise = loadStripe('pk_test_JJ1eMdKN0Hp4UFJ6kWXWO4ix00jtXzq5XG')
 
 class App extends Component {
   constructor () {
@@ -33,35 +39,40 @@ class App extends Component {
 
     return (
       <Fragment>
-        <Header user={user} />
-        {msgAlerts.map((msgAlert, index) => (
-          <AutoDismissAlert
-            key={index}
-            heading={msgAlert.heading}
-            variant={msgAlert.variant}
-            message={msgAlert.message}
-          />
-        ))}
-        <main className="container">
-          <Route path='/' render={() => (
-            <Redirect to='/products'/>
-          )}/>
-          <Route path='/sign-up' render={() => (
-            <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
-          )} />
-          <Route path='/sign-in' render={() => (
-            <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
-          )} />
-          <Route user={user} path="/products" render={() => (
-            <ProductPage token={user ? user.token : null} msgAlert={this.msgAlert} />
-          )} />
-          <AuthenticatedRoute user={user} path='/sign-out' render={() => (
-            <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} path='/change-password' render={() => (
-            <ChangePassword msgAlert={this.msgAlert} user={user} />
-          )} />
-        </main>
+        <Elements stripe={stripePromise}>
+          <Header user={user} />
+          {msgAlerts.map((msgAlert, index) => (
+            <AutoDismissAlert
+              key={index}
+              heading={msgAlert.heading}
+              variant={msgAlert.variant}
+              message={msgAlert.message}
+            />
+          ))}
+          <main className="container">
+            <Route exact path='/' render={() => (
+              <Redirect to='/products'/>
+            )}/>
+            <Route path='/sign-up' render={() => (
+              <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
+            )} />
+            <Route path='/sign-in' render={() => (
+              <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
+            )} />
+            <Route user={user} path="/products" render={() => (
+              <ProductPage token={user ? user.token : null} msgAlert={this.msgAlert} />
+            )} />
+            <AuthenticatedRoute user={user} path='/sign-out' render={() => (
+              <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
+            )} />
+            <AuthenticatedRoute user={user} path='/change-password' render={() => (
+              <ChangePassword msgAlert={this.msgAlert} user={user} />
+            )} />
+            <AuthenticatedRoute user={user} path='/cart' render={() => (
+              <Cart token={user.token} msgAlert={this.msgAlert}/>
+            )} />
+          </main>
+        </Elements>
       </Fragment>
     )
   }
