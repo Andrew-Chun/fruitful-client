@@ -33,7 +33,7 @@ const Cart = (props) => {
     active.products.forEach(product => {
       total += product.price
     })
-    return total.toFixed(2)
+    return total
   }
 
   if (checkout) {

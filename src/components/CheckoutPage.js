@@ -67,24 +67,6 @@ const CheckoutPage = (props) => {
       })
   }, [])
 
-  const cardStyle = {
-    style: {
-      base: {
-        color: '#32325d',
-        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-        fontSmoothing: 'antialiased',
-        fontSize: '16px',
-        '::placeholder': {
-          color: '#32325d'
-        }
-      },
-      invalid: {
-        color: '#fa755a',
-        iconColor: '#fa755a'
-      }
-    }
-  }
-
   const handleChange = async (event) => {
     // Listen for changes in the CardElement
     // and display any errors as the customer types their card details
@@ -134,7 +116,28 @@ const CheckoutPage = (props) => {
 
   const itemStyle = {
     marginTop: '5px',
-    marginBottom: '5px'
+    marginBottom: '5px',
+    'list-style-type': 'none',
+    textAlign: 'center',
+    border: '1px solid black'
+  }
+
+  const cardStyle = {
+    style: {
+      base: {
+        color: '#32325d',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+          color: '#32325d'
+        }
+      },
+      invalid: {
+        color: '#fa755a',
+        iconColor: '#fa755a'
+      }
+    }
   }
 
   const poweredMessageStyling = {
@@ -161,14 +164,19 @@ const CheckoutPage = (props) => {
       <ul style={{ marginBottom: '20px' }}>
         {items.map((item, index) => (
           <React.Fragment key={index}>
-            <li style={itemStyle}>{item.name} (${item.price})</li>
+            <li style={itemStyle}>
+              <img src={item.image} alt='Product' width='250' height='250' />
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+              <p>Price: ${item.price}</p>
+            </li>
           </React.Fragment>
         ))}
       </ul>
-      <p>Subtotal: ${subtotal}</p>
-      <p>Sales Tax (7.5%): ${tax}</p>
-      <h3>Order Total: ${total}</h3>
-      <p>Your email is: {props.user.email}</p>
+      <p style={{ textAlign: 'right' }}>Subtotal: ${subtotal}</p>
+      <p style={{ textAlign: 'right' }}>Sales Tax (7.5%): ${tax}</p>
+      <h4 style={{ textAlign: 'right', fontweight: 'bold' }}>Order Total: ${total.toFixed(2)}</h4>
+      <p style={{ textAlign: 'right' }}>Your email is: {props.user.email}</p>
       <br />
       <form id="payment-form" className="stripe-form" onSubmit={handleSubmit}>
         <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
@@ -177,19 +185,11 @@ const CheckoutPage = (props) => {
           id="submit"
         >
           <span id="button-text">
-            {processing ? (
-              <div className="spinner" id="spinner"></div>
-            ) : (
-              'Pay'
-            )}
+            {processing ? (<div className="spinner" id="spinner"></div>) : ('Pay')}
           </span>
         </button>
         {/* Show any error that happens when processing the payment */}
-        {error && (
-          <div className="card-error" role="alert">
-            {error}
-          </div>
-        )}
+        {error && <div className="card-error" role="alert"> {error}</div>}
         {/* Show a success message upon completion */}
         <p className={succeeded ? 'result-message' : 'result-message hidden'}>
           Payment Succeeded
