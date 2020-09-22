@@ -11,6 +11,7 @@ import ChangePassword from '../ChangePassword/ChangePassword'
 import ProductPage from '../ProductPage'
 import Cart from '../Cart'
 import CheckoutPage from '../CheckoutPage'
+import PastOrderPage from '../PastOrderPage'
 
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
@@ -62,6 +63,9 @@ class App extends Component {
             )} />
             <Route user={user} path="/products" render={() => (
               <ProductPage token={user ? user.token : null} msgAlert={this.msgAlert} />
+            )} />
+            <AuthenticatedRoute user={user} path="/past-orders" render={() => (
+              <PastOrderPage token={user.token} />
             )} />
             <AuthenticatedRoute user={user} path='/sign-out' render={() => (
               <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />

@@ -59,7 +59,7 @@ const CheckoutPage = (props) => {
         'Content-Type': 'application/json'
       },
       data: {
-        amount: total
+        amount: total.toFixed(2)
       }
     })
       .then(data => {
@@ -173,8 +173,8 @@ const CheckoutPage = (props) => {
           </React.Fragment>
         ))}
       </ul>
-      <p style={{ textAlign: 'right' }}>Subtotal: ${subtotal}</p>
-      <p style={{ textAlign: 'right' }}>Sales Tax (7.5%): ${tax}</p>
+      <p style={{ textAlign: 'right' }}>Subtotal: ${subtotal.toFixed(2)}</p>
+      <p style={{ textAlign: 'right' }}>Sales Tax (7.5%): ${tax.toFixed(2)}</p>
       <h4 style={{ textAlign: 'right', fontweight: 'bold' }}>Order Total: ${total.toFixed(2)}</h4>
       <p style={{ textAlign: 'right' }}>Your email is: {props.user.email}</p>
       <br />

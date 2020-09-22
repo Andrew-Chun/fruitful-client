@@ -69,7 +69,7 @@ const Cart = (props) => {
 
     costJSX = (
       <div style={costStyle}>
-        <h3>Order Total Cost: ${totalCost}</h3>
+        <h3>Order Total Cost: ${totalCost.toFixed(2)}</h3>
         <button onClick={toCheckout}>Proceed to Checkout</button>
       </div>
     )
