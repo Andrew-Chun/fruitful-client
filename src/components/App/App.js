@@ -10,6 +10,7 @@ import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 import ProductPage from '../ProductPage'
 import Cart from '../Cart'
+import CheckoutPage from '../CheckoutPage'
 
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
@@ -70,6 +71,9 @@ class App extends Component {
             )} />
             <AuthenticatedRoute user={user} path='/cart' render={() => (
               <Cart token={user.token} msgAlert={this.msgAlert}/>
+            )} />
+            <AuthenticatedRoute user={user} path='/checkout' render={(componentProps) => (
+              <CheckoutPage redirectState={componentProps} user={user} msgAlert={this.msgAlert} />
             )} />
           </main>
         </Elements>

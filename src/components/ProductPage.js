@@ -20,7 +20,6 @@ class ProductPage extends Component {
       url: apiUrl + '/products'
     })
       .then(response => {
-        console.log(response)
         this.setState({ productList: response.data.products })
       })
       .catch(console.error)
