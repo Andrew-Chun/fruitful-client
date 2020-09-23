@@ -42,14 +42,14 @@ const Product = (props) => {
 
   const productStyles = {
     border: '3px solid black',
-    margin: '30px 20px',
+    margin: '10px auto',
     padding: '5px',
     width: '300px'
   }
 
   return (
     <div style={productStyles}>
-      <h2>{props.name}</h2>
+      <h2 className="fruit-name">{props.name}</h2>
       <img src={props.image} alt='Product' width='250' height='250' />
       <p>Description: {props.description}</p>
       <p>Price: ${props.price}</p>

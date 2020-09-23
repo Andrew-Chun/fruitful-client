@@ -24,9 +24,18 @@ const alwaysOptions = (
   </Fragment>
 )
 
+const navbarStyle = {
+  backgroundColor: '#fabea7'
+}
+
+const navbarBrandStyle = {
+  fontfamily: 'Suez One, serif',
+  fontSize: '40px'
+}
+
 const Header = ({ user }) => (
-  <Navbar bg="primary" variant="dark" expand="md">
-    <Navbar.Brand href="#">
+  <Navbar style={navbarStyle} variant="dark" expand="md">
+    <Navbar.Brand style={navbarBrandStyle} href="#">
       Fruitful
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />

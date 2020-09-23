@@ -59,7 +59,7 @@ const CheckoutPage = (props) => {
         'Content-Type': 'application/json'
       },
       data: {
-        amount: total.toFixed(2)
+        amount: total
       }
     })
       .then(data => {
@@ -117,7 +117,7 @@ const CheckoutPage = (props) => {
   const itemStyle = {
     marginTop: '5px',
     marginBottom: '5px',
-    'list-style-type': 'none',
+    listStyleType: 'none',
     textAlign: 'center',
     border: '1px solid black'
   }
@@ -158,7 +158,7 @@ const CheckoutPage = (props) => {
 
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>Checkout</h1>
+      <h1 style={{ textAlign: 'center' }}>Checkout Page</h1>
       <button onClick={toCart}>Back to Cart</button>
       <h2 style={{ textAlign: 'center' }}>Order Summary</h2>
       <ul style={{ marginBottom: '20px' }}>
