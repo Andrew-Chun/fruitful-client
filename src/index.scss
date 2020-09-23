@@ -1,5 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
+body {
+  background: #ffeadb;
+}
+
 .container {
   max-width: 1500px;
 }
@@ -134,7 +138,6 @@
 
 .fruit-name {
   font-family: 'PT Serif', serif;
-  text-align: center;
 }
 
 img {

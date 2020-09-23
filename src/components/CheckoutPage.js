@@ -115,8 +115,8 @@ const CheckoutPage = (props) => {
   }
 
   const itemStyle = {
-    marginTop: '5px',
-    marginBottom: '5px',
+    margin: 'auto',
+    maxWidth: '50vw',
     listStyleType: 'none',
     textAlign: 'center',
     border: '1px solid black'
@@ -151,7 +151,7 @@ const CheckoutPage = (props) => {
     color: 'red',
     display: 'block',
     width: '50vw',
-    margin: '0 auto',
+    margin: '10px auto',
     textAlign: 'center',
     fontSize: '12px'
   }
@@ -161,23 +161,25 @@ const CheckoutPage = (props) => {
       <h1 style={{ textAlign: 'center' }}>Checkout Page</h1>
       <button onClick={toCart}>Back to Cart</button>
       <h2 style={{ textAlign: 'center' }}>Order Summary</h2>
-      <ul style={{ marginBottom: '20px' }}>
+      <div style={{ marginBottom: '20px' }}>
         {items.map((item, index) => (
           <React.Fragment key={index}>
-            <li style={itemStyle}>
-              <img src={item.image} alt='Product' width='250' height='250' />
-              <h3>{item.name}</h3>
+            <div style={itemStyle}>
+              <img src={item.image} alt='Product' width='150' height='150' />
+              <h3 className="fruit-name">{item.name}</h3>
               <p>{item.description}</p>
               <p>Price: ${item.price}</p>
-            </li>
+            </div>
           </React.Fragment>
         ))}
-      </ul>
+      </div>
       <p style={{ textAlign: 'right' }}>Subtotal: ${subtotal.toFixed(2)}</p>
       <p style={{ textAlign: 'right' }}>Sales Tax (7.5%): ${tax.toFixed(2)}</p>
       <h4 style={{ textAlign: 'right', fontweight: 'bold' }}>Order Total: ${total.toFixed(2)}</h4>
       <p style={{ textAlign: 'right' }}>Your email is: {props.user.email}</p>
       <br />
+      <p style={disclaimerStyling}>Disclaimer: Payments are for demonstration purposes only. To complete your demo payment, please use the following card number: 4242 4242 4242 4242. <br />
+      Any Exp. Date, CVC, and ZIP may be used.</p>
       <form id="payment-form" className="stripe-form" onSubmit={handleSubmit}>
         <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
         <button className="stripe-button"
@@ -196,7 +198,6 @@ const CheckoutPage = (props) => {
         </p>
       </form>
       <p style={poweredMessageStyling}>Payment Powered by Stripe</p>
-      <p style={disclaimerStyling}>Disclaimer: Payments are for demonstration purposes only. To complete your demo payment, please use the following card number: 4242 4242 4242 4242. Any Exp. Date, CVC, and ZIP may be used.</p>
     </div>
   )
 }

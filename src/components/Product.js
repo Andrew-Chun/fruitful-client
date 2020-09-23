@@ -47,10 +47,17 @@ const Product = (props) => {
     width: '300px'
   }
 
+  const imageStyles = {
+    display: 'block',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 'auto'
+  }
+
   return (
     <div style={productStyles}>
+      <img style={imageStyles} src={props.image} alt='Product' width='250' height='250' />
       <h2 className="fruit-name">{props.name}</h2>
-      <img src={props.image} alt='Product' width='250' height='250' />
       <p>Description: {props.description}</p>
       <p>Price: ${props.price}</p>
       <button onClick={handleAddtoCart}>Add to Cart</button>
