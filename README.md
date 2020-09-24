@@ -31,9 +31,8 @@ I started by creating user stories and wireframes to get a general idea of what 
 
 ## Images
 App Screenshots:
-![Fruitful Landing Page](https://i.imgur.com/AbJTObX.png)
-![Fruitful Checkout Page](https://i.imgur.com/twHanai.png)
-![Fruitful Past Orders Page](https://i.imgur.com/Xzuxg4q.png)
+![Fruitful Landing Page](https://i.imgur.com/V3XjKjG.png)
+![Fruitful Checkout Page](https://i.imgur.com/A5JtzhG.png)
 
 Wireframes:
 
