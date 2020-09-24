@@ -25,7 +25,7 @@ const alwaysOptions = (
 )
 
 const navbarStyle = {
-  backgroundColor: '#fabea7'
+  backgroundColor: '#22303E'
 }
 
 const Header = ({ user }) => (
