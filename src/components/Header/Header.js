@@ -28,21 +28,9 @@ const navbarStyle = {
   backgroundColor: '#fabea7'
 }
 
-const navbarBrandStyle = {
-  fontfamily: 'Suez One, serif',
-  fontSize: '30px'
-}
-
-const logoStyle = {
-  borderRadius: '60%',
-  marginLeft: '25px',
-  marginRight: '5px'
-}
-
 const Header = ({ user }) => (
   <Navbar style={navbarStyle} variant="dark" expand="md">
-    <Navbar.Brand style={navbarBrandStyle} href="#">
-      <img src={'https://i.imgur.com/2d8Wu60.jpg'} style={logoStyle} height="50px" />
+    <Navbar.Brand className="navbarBrand" href="#">
       Fruitful
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />

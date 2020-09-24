@@ -41,7 +41,6 @@ const Product = (props) => {
   }
 
   const productStyles = {
-    border: '3px solid black',
     margin: '10px auto',
     padding: '5px',
     width: '300px'
@@ -55,12 +54,24 @@ const Product = (props) => {
   }
 
   return (
-    <div style={productStyles}>
-      <img style={imageStyles} src={props.image} alt='Product' width='250' height='250' />
-      <h2 className="fruit-name">{props.name}</h2>
-      <p>Description: {props.description}</p>
-      <p>Price: ${props.price}</p>
-      <button onClick={handleAddtoCart}>Add to Cart</button>
+    // <div class="card">
+    //   <img class="card-img-top" src="..." alt="Card image cap">
+    //   <div class="card-body">
+    //     <h5 class="card-title">Card title</h5>
+    //     <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+    //     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    //   </div>
+    // </div>
+    <div style={productStyles} className="card">
+      <img style={imageStyles} src={props.image} alt='Product' width='125' height='125' />
+      <div className="card-body">
+        <h2 className="fruit-name">{props.name}</h2>
+        <p style={{ maxWidth: '250px' }}>Description: {props.description}</p>
+        <p>Price: ${props.price}</p>
+        <div style={{ textAlign: 'center' }}>
+          <button type="submit" className="btn-add" onClick={handleAddtoCart}>Add to Cart</button>
+        </div>
+      </div>
     </div>
   )
 }

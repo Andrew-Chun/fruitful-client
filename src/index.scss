@@ -1,9 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
 
-body {
-  background: #ffeadb;
-}
-
 .container {
   max-width: 1500px;
 }
@@ -136,10 +132,21 @@ body {
   animation: loading 2s infinite ease;
 }
 
+.navbarBrand {
+  font-family: 'Trocchi', serif;
+  font-size: 30px;
+  margin-left: 25px;
+}
+
 .fruit-name {
   font-family: 'PT Serif', serif;
 }
 
 img {
   text-align: center;
+}
+
+.btn-add {
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  width: 100%;
 }
