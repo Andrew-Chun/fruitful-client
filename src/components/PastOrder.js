@@ -47,7 +47,8 @@ const PastOrder = (props) => {
   const productNewList = props.products.map((product, productIndex) => (
     <div key={productIndex} style={productBoxStyle}>
       <img src={product.image} alt='product' height='250' width='250'></img>
-      <p className="fruit-name" style={nameStyle}>{product.name}, ${product.price}</p>
+      <p className="fruit-name" style={nameStyle}>{product.name}</p>
+      <p>${product.price}</p>
       <p style={descriptionStyle}>{product.description}</p>
     </div>
   ))

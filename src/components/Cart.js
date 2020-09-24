@@ -71,8 +71,9 @@ const Cart = (props) => {
 
     costJSX = (
       <div style={costStyle}>
-        <h3>Order Total Cost: ${totalCost.toFixed(2)}</h3>
-        <button onClick={toCheckout}>Proceed to Checkout</button>
+        <h3>Subtotal: ${totalCost.toFixed(2)}</h3>
+        <p>(Taxes and fees assessed during checkout)</p>
+        <button className="btn-checkout" onClick={toCheckout}>Proceed to Checkout</button>
       </div>
     )
   }

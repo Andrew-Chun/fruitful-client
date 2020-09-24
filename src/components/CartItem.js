@@ -61,7 +61,7 @@ const CartItem = (props) => {
       <p className="fruit-name" style={nameStyle}>{props.product.name}</p>
       <p style={descriptionStyle}>{props.product.description}</p>
       <p>Price: ${props.product.price}</p>
-      <button onClick={removeItem}>Remove from Cart</button>
+      <button className="btn btn-danger" onClick={removeItem}>Remove from Cart</button>
     </div>
   )
 }

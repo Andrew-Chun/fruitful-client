@@ -158,8 +158,8 @@ const CheckoutPage = (props) => {
 
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>Checkout Page</h1>
-      <button onClick={toCart}>Back to Cart</button>
+      <h1 style={{ textAlign: 'center' }}>Checkout</h1>
+      <button className="btn-checkout" onClick={toCart}>Back to Cart</button>
       <h2 style={{ textAlign: 'center' }}>Order Summary</h2>
       <div style={{ marginBottom: '20px' }}>
         {items.map((item, index) => (
@@ -176,7 +176,6 @@ const CheckoutPage = (props) => {
       <p style={{ textAlign: 'right' }}>Subtotal: ${subtotal.toFixed(2)}</p>
       <p style={{ textAlign: 'right' }}>Sales Tax (7.5%): ${tax.toFixed(2)}</p>
       <h4 style={{ textAlign: 'right', fontweight: 'bold' }}>Order Total: ${total.toFixed(2)}</h4>
-      <p style={{ textAlign: 'right' }}>Your email is: {props.user.email}</p>
       <br />
       <p style={disclaimerStyling}>Disclaimer: Payments are for demonstration purposes only. To complete your demo payment, please use the following card number: 4242 4242 4242 4242. <br />
       Any Exp. Date, CVC, and ZIP may be used.</p>
